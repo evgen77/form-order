@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+  
+</body>
+</html>
+
+    <div class="row doctor-item">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+        <img src="img/estetic.jpg" alt="">
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-6 col-12">
+       <h4 class="name">Сикольская Марина Владимировна</h4>
+       <p>
+        Врач-невропатолог высшей категории, кандидат медицинских наук, доцент кафедры нервных болезней ЗГМедУ.
+       </p>
+       <i class="icon-calendar">12 лет опыта</i>
+      </div>
+      <div class="col-3 col-md-3 col-sm-6 col-12">
+        <p>Стоимость приема</p>
+        <span>от 650 грн</span> 
+        <a href="javascript:void(0);"  class="btn get_popup">Записаться</a>
+      </div>
+    </div> <!--doctor-item-->
+
+<div id="wrap-popup">
+  
+  <div class="popup-body">
+    <div class="popup-form">
+      <div class="close-form">X</div>
+      <div class="left">
+        <h4 class="name-doctor">Сикольская Марина Владимировна</h4>
+        <img src="" alt="">
+      </div>
+      <div class="right">
+        <h4>Записаться на прием</h4>
+        <form action="">
+          <input type="text" placeholder="Ваше имя">
+          <input type="text" placeholder="Ваш телефон" id="tel">
+          <a href="" class="btn" id="sendForm">Отправить</a>
+        </form>
+        <div class="ty">Спасибо за заявку, ожидайте звонка!</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="jquery.js"></script>
+<script>
+  $(document).ready(function(){
+        // Show form order a doctor   
+  $('.get_popup').click( function() {
+       var item = $(this).parent().parent('.doctor-item');
+       var image = item.find('img').attr('src');
+       var nameDoctor = item.find('.name').text();
+       var popup = $('#wrap-popup');     
+       popup.find('.name-doctor').text(nameDoctor);
+       popup.find('img').attr('src', image);
+       popup.fadeIn(); 
+       console.log(nameDoctor);
+
+  });
+  //Close form order a doctor
+  $('.close-form').click( function(){
+    $('#wrap-popup').fadeOut(); 
+});
+  });
+
+</script>
